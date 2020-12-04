@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    form {
+      margin: auto;
+      width: 35%;
+    }
+    .result {
+      margin: auto;
+      width: 35%;
+      border: 1px solid rgb(0, 0, 0);
+    }
+    #customer_title {
+      background-color: lightgrey;
+      width: 300px;
+      border: 15px solid;
+      padding: 50px;
+      margin: 20px;
+    }
+    .row {
+      display: flex;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    #second_col {
+      margin-left: 20px;
+    }
+
+    .col1 {
+      flex: 50;
+    }
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4caf50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <head>
+    <title>Customer Churn Model</title>
+  </head>
+  <form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+      <legend>Please Enter the Email to classify</legend>
+      <input type="text" id="email_text" name="email_text" value="email_text" />
+      <br />
+
+      <input type="submit" />
+    </fieldset>
+  </form>
+  <br />
+  <div class="result" align="center">
+    {% if result %} {% for variable, value in original_input.items() %}
+    <b>{{ variable }}</b> : {{ value }} {% endfor %}
+    <br />
+    <br />
+    The Spam prediction:
+    <p style="font-size:50px;color: #45a049; ">{{ result }}</p>
+    {% endif %}
+  </div>
+</html>
