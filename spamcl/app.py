@@ -61,7 +61,7 @@ def get_predictions(text):
 def show_predict(email_text):
     prediction = get_predictions(email_text)
     email_type = ""
-    if(prediction == '0'):
+    if(prediction == '1'):
         email_type = "The prediction is "+str(prediction)+" It is a Spam"
     else:
         email_type = "The prediction is "+str(prediction)+" It is not a Spam"
