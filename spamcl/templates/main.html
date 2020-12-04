@@ -59,7 +59,7 @@
   <head>
     <title>Customer Churn Model</title>
   </head>
-  <form action="{{ url_for('main') }}" method="POST">
+  <form action="{{ url_for('predict') }}" method="POST">
     <fieldset>
       <legend>Please Enter the Email to classify</legend>
       <input type="text" id="email_text" name="email_text" value="email_text" />
@@ -70,12 +70,12 @@
   </form>
   <br />
   <div class="result" align="center">
-    {% if result %} {% for variable, value in original_input.items() %}
+    {% if prediction %} {% for variable, value in original_input.items() %}
     <b>{{ variable }}</b> : {{ value }} {% endfor %}
     <br />
     <br />
     The Spam prediction:
-    <p style="font-size:50px;color: #45a049; ">{{ result }}</p>
+    <p style="font-size:50px;color: #45a049; ">{{ prediction }}</p>
     {% endif %}
   </div>
 </html>
